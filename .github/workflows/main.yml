@@ -10,15 +10,12 @@ jobs:
   auto-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Make 250 commits as user
+     - name: Make 250 commits as user
         run: |
           git config --global user.name "desh656"
           git config --global user.email "deshkidharti01@gmail.com"
           
-          for i in {1..50}
+          for i in {1..250}
           do
             echo "Automated commit #$i at $(date)" >> activity_log.txt
             git add activity_log.txt
