@@ -1,0 +1,28 @@
+name: Auto Commit Generator
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make 50 commits
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          for i in {1..50}
+          do
+            echo "Automated commit #$i at $(date)" >> activity_log.txt
+            git add activity_log.txt
+            git commit -m "chore: automated activity log update #$i"
+          done
+          
+          git push
