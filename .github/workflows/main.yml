@@ -13,10 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Make 50 commits
+      - name: Make 250 commits as user
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "desh656"
+          git config --global user.email "deshkidharti01@gmail.com"
           
           for i in {1..50}
           do
