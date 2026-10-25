@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+  EMERGENCY CONTACTS — the most important public page on this site.
+
+  WHO THIS IS FOR
+    Someone who is not a user, has no account, and may be standing over a person
+    who is not breathing. They arrived here from a search engine, a printed card,
+    or a link someone sent them. They have seconds and no patience for narrative.
+
+  DESIGN RULES THIS PAGE OBEYS
+    1. The number comes before the explanation. Every other page on the internet
+       explains itself first; this one does not.
+    2. Every number is a tel: link — one tap on a phone, no transcription errors.
+    3. Numbers we cannot confirm are visibly marked unverified. Presenting an
+       unchecked hotline number as authoritative is the same failure mode as
+       hallucinating a legal protection (PRD §6.5) — someone dials it and nobody
+       answers.
+    4. No account, no auth, no cookie wall, nothing to dismiss.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergency help — Threshold</title>
+<meta name="description" content="Emergency and crisis numbers for overdose, substance use, and mental health in India. Call 112 for a suspected overdose.">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/light.css">
+<link rel="stylesheet" href="/static/css/tiers.css">
+<link rel="stylesheet" href="/static/css/public.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body class="public" data-tier="0">
+
+<!-- Skip link: the first tab stop goes straight to the numbers, not the nav. -->
+<a href="#numbers" class="skip">Skip to emergency numbers</a>
+
+<header class="masthead">
+  <a href="/home" class="wordmark" style="text-decoration:none;color:var(--ink);font-weight:600">Threshold</a>
+  <nav aria-label="Primary">
+    <a href="/home">Home</a>
+    <a href="/emergency" aria-current="page">Emergency</a>
+    <a href="/bystander">Overdose guide</a>
+    <a href="/contact">Contact</a>
+    <a href="/login">Sign in</a>
+  
+    <span data-theme-toggle></span>
+  </nav>
+</header>
+
+<main class="public-main" id="numbers">
+
+  <!-- THE BAND. Loudest element on the page, first thing painted, above any prose. -->
+  <section class="emergency-band" aria-labelledby="now">
+    <p class="label" id="now">If someone is overdosing right now</p>
+    <h1 class="display" style="font-size:var(--step-5);margin:var(--sp-3) 0 var(--sp-4)">
+      Call 112. Then stay with them.
+    </h1>
+    <a href="tel:112" class="btn btn-emergency">Call 112</a>
+    <p class="prose" style="margin-top:var(--sp-4)">
+      India’s Emergency Response Support System uses 112 nationwide for police,
+      fire, health, and other urgent assistance. Say that the person may be
+      overdosing and is not breathing normally.
+    </p>
+    <p style="margin-top:var(--sp-3)">
+      <a href="/bystander" class="btn">What to do while you wait &rarr;</a>
+    </p>
+  </section>
+
+  <h2 style="font-size:var(--step-3);font-weight:550;margin-bottom:var(--sp-2)">Crisis and support lines</h2>
+  <p class="prose" style="margin-bottom:var(--sp-5)">
+    These are free, confidential, and available to anyone — including family
+    members and people who are not in treatment.
+  </p>
+
+  <!-- Only official Government of India services are listed here. -->
+  <section aria-label="Crisis lines">
+
+    <a class="tel" href="tel:112">
+      <span class="tel-number">112</span>
+      <span class="tel-name">Emergency Response Support System</span>
+      <span class="tel-note">Pan-India emergency assistance for health, police, fire, and rescue.</span>
+    </a>
+
+    <a class="tel" href="tel:14416">
+      <span class="tel-number">14416</span>
+      <span class="tel-name">Tele-MANAS</span>
+      <span class="tel-note">
+        Government of India 24/7 tele-mental-health support. For immediate
+        physical danger or suspected overdose, call 112 first.
+      </span>
+    </a>
+
+  </section>
+
+  <div class="note">
+    <p><strong>Sources.</strong> Emergency information is based on India’s
+    official <a href="https://112.gov.in/">ERSS</a>. Tele-MANAS information is
+    published by the Ministry of Health and Family Welfare.</p>
+  </div>
+
+  <h2 style="font-size:var(--step-3);font-weight:550;margin-top:var(--sp-7);margin-bottom:var(--sp-3)">
+    Naloxone
+  </h2>
+  <p class="prose">
+    Naloxone can reverse an opioid overdose. If it is available, follow the
+    product instructions while another person calls 112. Do not delay the
+    emergency call while looking for it.
+  </p>
+  <p style="margin-top:var(--sp-4)">
+    <a href="/bystander" class="btn">How to use naloxone &rarr;</a>
+  </p>
+
+</main>
+
+<footer class="public-footer">
+  <div class="footer-inner">
+    <nav aria-label="Product">
+      <span class="label">Product</span>
+      <a href="/home">Home</a>
+      <a href="/login">Sign in</a>
+      <a href="/bystander">Overdose guide</a>
+    </nav>
+    <nav aria-label="Legal">
+      <span class="label">Legal</span>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/data-deletion">Delete my data</a>
+    </nav>
+    <nav aria-label="Contact">
+      <span class="label">Contact</span>
+      <a href="/contact">Contact us</a>
+      <a href="/emergency">Emergency numbers</a>
+    </nav>
+  </div>
+  <p class="footer-crisis">
+    In immediate danger? <a href="tel:112">Call 112</a> &nbsp;·&nbsp;
+    Mental-health support: <a href="tel:14416">Tele-MANAS 14416</a>
+  </p>
+</footer>
+
+</body>
+</html>

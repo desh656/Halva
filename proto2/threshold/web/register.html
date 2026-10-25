@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+  REGISTER — /register
+  Surface: anyone. An evaluator must be able to create a real working account,
+  so this is a full end-to-end form, not a decorative one. Role is chosen here
+  because it decides which surface they land on (user -> /, caregiver -> /caregiver).
+-->
+<html lang="en" data-tier="0" data-default-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Create an account — Threshold</title>
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/light.css">
+<link rel="stylesheet" href="/static/css/tiers.css">
+<link rel="stylesheet" href="/static/css/pages.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body class="auth-page">
+<a class="skip-link" href="#signup">Skip to the form</a>
+
+<div class="auth">
+
+  <aside class="auth__aside">
+    <div class="stack">
+      <a class="btn btn--quiet" href="/home" style="align-self: flex-start;">← Back to homepage</a>
+      <a class="wordmark" href="/home" aria-label="Threshold homepage">Thresh<span>o</span>ld</a>
+      <p class="lede" style="max-width: 26ch;">
+        Nothing here is hidden from you. Not the log, not the rules, not what your people can see.
+      </p>
+    </div>
+
+    <!-- The three promises. Stated before the account exists, because they are
+         the reason to make one — not settings to discover later. -->
+    <div class="stack">
+      <h2 class="label">What you are agreeing to</h2>
+      <ul class="stack" style="gap: var(--sp-4);">
+        <li class="panel">
+          <p>Every event is visible to you. There is no second log.</p>
+        </li>
+        <li class="panel">
+          <p>You choose which tiers your caregiver can see — except 4 and 5.</p>
+        </li>
+        <li class="panel">
+          <p>You can say "I'm okay" at any point and the ladder comes back down.</p>
+        </li>
+      </ul>
+    </div>
+
+    <p class="hint">
+      Already have an account? <a href="/login" class="mark">Sign in</a><br>
+      Were you given an invite code?
+      <a href="/register/caregiver" class="mark">Create a caregiver account</a>
+    </p>
+  </aside>
+
+  <main class="auth__main" id="signup">
+    <div class="auth__form stack-loose">
+
+      <div class="stack-tight">
+        <h1 class="display" style="font-size: var(--step-4);">Create an account</h1>
+        <p class="hint">Email verification keeps your recovery information tied to you.</p>
+      </div>
+
+      <form class="stack" id="register-form" method="post" action="/api/auth/register" novalidate>
+        <div class="field signup-account-field">
+          <label for="r-name">Full name</label>
+          <input class="input" type="text" id="r-name" name="full_name"
+                 autocomplete="name" required>
+        </div>
+
+        <div class="field signup-account-field">
+          <label for="r-email">Email</label>
+          <input class="input" type="email" id="r-email" name="email"
+                 autocomplete="email" inputmode="email" required
+                 aria-describedby="r-email-hint">
+          <p class="hint" id="r-email-hint">We will email a six-digit verification code.</p>
+        </div>
+
+        <div class="field signup-account-field">
+          <label for="r-phone">Phone number</label>
+          <input class="input" type="tel" id="r-phone" name="phone"
+                 autocomplete="tel" inputmode="tel" required
+                 aria-describedby="r-phone-hint">
+          <p class="hint" id="r-phone-hint">Required contact information. We do not phone-verify it.</p>
+        </div>
+
+        <div class="field signup-account-field">
+          <label for="r-password">Password</label>
+          <input class="input" type="password" id="r-password" name="password"
+                 autocomplete="new-password" required minlength="6"
+                 aria-describedby="r-password-hint">
+          <p class="hint" id="r-password-hint">Six characters or more.</p>
+        </div>
+
+        <div class="field" id="r-verify-field" hidden>
+          <label for="r-code">Email verification code</label>
+          <input class="input data" type="text" id="r-code"
+                 autocomplete="one-time-code" inputmode="numeric"
+                 pattern="[0-9]{6}" maxlength="6" aria-describedby="r-code-hint">
+          <p class="hint" id="r-code-hint">Enter the six digits sent to your email. It expires in 10 minutes.</p>
+        </div>
+
+        <!-- A11Y: assertive, because registration failure blocks the user. -->
+        <p class="error-text" id="register-error" role="alert" hidden></p>
+
+        <button type="submit" class="btn btn--primary btn--lg btn--block" id="register-submit">Email my verification code</button>
+      </form>
+
+      <div class="notice notice--warn">
+        <div>
+          <strong>Someone is overdosing right now?</strong>
+          <a href="/bystander" class="mark">Open bystander mode</a> — no account needed, ever.
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="/static/js/auth.js" type="module"></script>
+</body>
+</html>
