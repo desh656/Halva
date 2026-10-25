@@ -13,12 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Make 500 commits as user
+      - name: Make 1500 commits as user
         run: |
           git config --global user.name "desh656"
           git config --global user.email "deshkidharti01@gmail.com"
           
-          for i in {1..500}
+          for i in {1..1500}
           do
             echo "Automated commit #$i at $(date)" >> activity_log.txt
             git add activity_log.txt
